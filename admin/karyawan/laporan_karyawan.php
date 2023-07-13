@@ -7,27 +7,14 @@
 
 	<?php
 	$query = "SELECT * FROM tb_karyawan";
-	// $url_cetak = "admin/karyawan/cetak.php";
 	?>
 
-	<div style="padding: 15px;">
-		<form method="POST">
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
-					<div class="form-group">
-					</div>
-				</div>
-			</div>
-		</form>
-		<div>
-			</h6>
-			
-
+	<div class="card-body">
 			<form method="get" action="">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group my-2">
-							<label>Filter Tipe</label>
+							<label>Filter Tipe Karyawan</label>
                             <div class="input-group">
                                 <select name="tipe" id="tipe" class="form-control">
 									<?php
@@ -51,10 +38,9 @@
                                         
                 <?php
                 if(isset($_GET['tipe']))
-                    echo '<a href="index.php?page=laporan-karyawan" class="btn btn-sm btn-default">RESET</a>';
+                    echo '<a href="index.php?page=laporan-karyawan" class="btn btn-sm btn-warning">RESET</a>';
                 ?>
             </form>
-		</div>
 
 			<?php 
             $tipe = @$_GET['tipe'];
@@ -76,7 +62,7 @@
 		<hr>
 
 		<a href="<?php echo $url_cetak ?>" target="_blank">
-				<button class="btn btn-success">Cetak PDF</button>
+			<button class="btn btn-success">Cetak PDF</button>
 		</a>
 
 		<div class="card-body">
@@ -122,7 +108,6 @@
 						}
 						?>
 					</tbody>
-					</tfoot>
 				</table>
 			</div>
 		</div>
@@ -137,6 +122,5 @@
 				setDateRangePicker(".nip", ".nip")
 			})
 		</script>
-		</body>
-
-		</html>
+	</div>
+</div>

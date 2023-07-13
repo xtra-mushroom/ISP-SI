@@ -20,12 +20,14 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 }
 
+$tipe = @$_GET['tipe'];
+
 ?>
 
 <html>
 
 <head>
-    <title>Cetak PDF</title>
+    <title>Report Data Karyawan (<?php echo $tipe ?>)</title>
     <style>
         .table {
             border-collapse: collapse;
@@ -50,7 +52,6 @@ function tgl_indo($tanggal){
     // Load file koneksi.php
     include "../../inc/koneksi.php";
   
-    $tipe = @$_GET['tipe'];
     if(empty($tipe)){
         $query = "SELECT * FROM tb_karyawan";
         $url_cetak = "admin/karyawan/cetak.php";
@@ -69,7 +70,7 @@ function tgl_indo($tanggal){
     <img src="../assets/images/logo2.png" align=left width="180">
     <img src="../assets/images/logo3.png" align=right height="80" width="120">
 
-    <h2 style="text-align:center; margin-top: 20px;"> INDIHOME </h2>
+    <h2 style="text-align:center; margin-top: 20px;">INDIHOME</h2>
     <h3 style="text-align:center; margin-top: 20px;">MARABAHAN</h3>
     
     <hr>
@@ -79,7 +80,7 @@ function tgl_indo($tanggal){
     <div style="width:100%;text-align:right;"><?php echo $label ?></div>
 
     <table class="table" align=center width="670" border="1" style="margin-top: 20px; text-align:center;">
-        <tr>
+        <tr style="background:#62d9c7">
            <th width="40">No</th>
 			<th width="100">NIK</th>
 			<th width="150">Nama</th>
@@ -133,12 +134,11 @@ function tgl_indo($tanggal){
             <td align="center"><u>Demitri Erlangga, SE</u><br>NIK 1987654321</td>
         </tr>
     </table>
+
     <script>
 		window.print();
 	</script>
+    
 </body>
 
 </html>
-<?php
-
-?>
