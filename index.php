@@ -75,7 +75,7 @@ function rupiah($angka){
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DATA KARYAWAN</title>
+	<title>SI INDIHOME MARABAHAN</title>
 	<link rel="icon" href="dist/img/logo.png">
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">

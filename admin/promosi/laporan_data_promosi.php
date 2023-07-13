@@ -74,7 +74,7 @@
 						$no = 1;
 						$sql = mysqli_query($koneksi, $query); // Eksekusi/Jalankan query dari variabel $query
 						$row = mysqli_num_rows($sql); // Ambil jumlah data dari hasil eksekusi $sql
-						if ($row > 0) { // Jika jumlah data lebih dari 0 (Berarti jika data ada)
+						if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
 							while ($data = mysqli_fetch_array($sql)) { // Ambil semua data dari hasil eksekusi $sql
 								echo "<tr>";
 								echo "<td>" . $no++ . "</td>";
@@ -92,8 +92,8 @@
 								}
 								echo "</tr>";
 							}
-						} else { // Jika data tidak ada
-							echo "<tr><td colspan='5'>Data tidak ada</td></tr>";
+						}else{ // Jika data tidak ada
+							echo "<tr><td colspan='9' align='center' style='color:grey;font-style:italic'>Data tidak ditemukan</td></tr>";
 						}
 						?>
 					</tbody>
