@@ -276,14 +276,14 @@ function rupiah($angka){
 								</li>
 
 								<li class="nav-item">
-									<a href="?page=laporan-pemasangan" class="nav-link">
+									<a href="?page=laporan-pelanggan" class="nav-link">
 										<i class="far fa fa-newspaper nav-icon"></i>
 										<p>Data Pelanggan</p>
 									</a>
 								</li>
 
 								<li class="nav-item">
-									<a href="?page=laporan-pemasangan" class="nav-link">
+									<a href="?page=laporan-keluhan" class="nav-link">
 										<i class="far fa fa-newspaper nav-icon"></i>
 										<p>Data Keluhan</p>
 									</a>
@@ -297,7 +297,7 @@ function rupiah($angka){
 								</li>
 
 								<li class="nav-item">
-									<a href="?page=laporan-pemasangan" class="nav-link">
+									<a href="?page=laporan-biaya-pemasangan" class="nav-link">
 										<i class="far fa fa-newspaper nav-icon"></i>
 										<p>Data Biaya Pemasangan</p>
 									</a>

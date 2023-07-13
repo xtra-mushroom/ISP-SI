@@ -81,7 +81,7 @@ $tipe = @$_GET['tipe'];
 
     <table class="table" align=center width="670" border="1" style="margin-top: 20px; text-align:center;">
         <tr style="background:#62d9c7">
-           <th width="40">No</th>
+            <th width="40">No</th>
 			<th width="100">NIK</th>
 			<th width="150">Nama</th>
 			<th width="80">Jenis Kelamin</th>
