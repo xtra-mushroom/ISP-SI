@@ -176,7 +176,7 @@ if(isset($_GET['kode'])){
 
 
         $sql = "INSERT INTO tb_pemasangan VALUES ('$nik', '$idPasang', '$idPelanggan', $totalBiaya, $idTeknisi, '$tglPasang', '$ket');";
-		$sql .= "INSERT INTO tb_pelanggan VALUES ('$idPelanggan', '$namaPelanggan', '$nik', '$alamatPelanggan', '$noHpPelanggan', '$jenisPaket', '$tglPasang');";
+		$sql .= "INSERT INTO tb_pelanggan VALUES ('$idPelanggan', '$namaPelanggan', '$nik', '$alamatPelanggan', '$noHpPelanggan', '$jenisPaket', '$tglPasang', 'Aktif');";
 		$sql .= "UPDATE tb_promosi SET status_pasang='SUDAH' WHERE nik='$nik';";
 		// var_dump($sql);
         $query_simpan = mysqli_multi_query($koneksi, $sql);

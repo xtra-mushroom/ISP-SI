@@ -630,6 +630,9 @@ function rupiah($angka){
 							case 'del-keluhan':
 								include "datakeluhan/del_datakeluhan.php";
 								break;
+							case 'laporan-keluhan':
+								include "datakeluhan/laporan_datakeluhan.php";
+								break;
 
 							// Perbaikan
 							case 'data-perbaikan':

@@ -8,7 +8,7 @@
 		<div class="table-responsive">
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
-					<tr>
+					<tr align="center">
 						<th>No</th>
 						<th>ID Pelanggan</th>
 						<th>Nama</th>
@@ -16,6 +16,7 @@
 						<th>Alamat</th>
 						<th>Nomor HP</th>
 						<th>Jenis Paket</th>
+						<th>Status Pelanggan</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,8 +48,11 @@
 						<td>
 							<?php echo $data['no_hp_pelanggan']; ?>
 						</td>
-						<td>
+						<td align="center">
 							<?php echo $data['jenis_paket']; ?>
+						</td>
+						<td align="center">
+							<?php echo $data['status_langganan']; ?>
 						</td>
 					</tr>
 

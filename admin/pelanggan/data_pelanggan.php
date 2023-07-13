@@ -8,7 +8,7 @@
 		<div class="table-responsive">
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
-					<tr>
+					<tr align="center">
 						<th>No</th>
 						<th>ID Pelanggan</th>
 						<th>Nama</th>
@@ -16,6 +16,7 @@
 						<th>Alamat</th>
 						<th>Nomor HP</th>
 						<th>Jenis Paket</th>
+						<th>Status Pelanggan</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -51,8 +52,10 @@
 						<td>
 							<?php echo $data['jenis_paket']; ?>
 						</td>
-						
-						<td>
+						<td align="center">
+							<?php echo $data['status_langganan']; ?>
+						</td>
+						<td align="center">
 							<a href="?page=edit-pelanggan-teknisipemasangan&kode=<?php echo $data['id_pelanggan']; ?>" title="Edit" class="btn btn-success btn-sm">
 								<i class="fa fa-edit"></i>
 							</a>

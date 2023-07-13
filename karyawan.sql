@@ -118,6 +118,7 @@ CREATE TABLE `tb_pelanggan` (
   `no_hp_pelanggan` varchar(15) NOT NULL,
   `jenis_paket` char(10) NOT NULL,
   `tanggal_pasang` date NOT NULL,
+  `status_langganan` enum('Aktif','Tidak Aktif','Blacklist') DEFAULT NULL,
   PRIMARY KEY (`id_pelanggan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -128,7 +129,7 @@ CREATE TABLE `tb_pelanggan` (
 
 LOCK TABLES `tb_pelanggan` WRITE;
 /*!40000 ALTER TABLE `tb_pelanggan` DISABLE KEYS */;
-INSERT INTO `tb_pelanggan` VALUES ('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23');
+INSERT INTO `tb_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','1094719863333','Marabahan','081304250099','15Mbps','2023-07-12','Aktif'),('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23','Aktif');
 /*!40000 ALTER TABLE `tb_pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +141,7 @@ DROP TABLE IF EXISTS `tb_pemasangan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_pemasangan` (
-  `nik` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nik` varchar(20) NOT NULL,
   `id_pemasangan` char(10) NOT NULL,
   `id_pelanggan` varchar(32) NOT NULL,
   `total_biaya` double NOT NULL,
@@ -158,7 +159,7 @@ CREATE TABLE `tb_pemasangan` (
 
 LOCK TABLES `tb_pemasangan` WRITE;
 /*!40000 ALTER TABLE `tb_pemasangan` DISABLE KEYS */;
-INSERT INTO `tb_pemasangan` VALUES ('10947198651','261111','PI26948414',478000,29,'2023-06-23','selesai, terpasang');
+INSERT INTO `tb_pemasangan` VALUES ('1094719863333','261112','PI26250099',399000,29,'2023-07-12','selesai'),('10947198651','261111','PI26948414',478000,29,'2023-06-23','selesai, terpasang');
 /*!40000 ALTER TABLE `tb_pemasangan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +273,7 @@ CREATE TABLE `tb_promosi` (
 
 LOCK TABLES `tb_promosi` WRITE;
 /*!40000 ALTER TABLE `tb_promosi` DISABLE KEYS */;
-INSERT INTO `tb_promosi` VALUES ('10947198651','Nana','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-21',28,'-2.323248358875917, 115.46437901041834','SUDAH'),('479817491874','Rusdianor','Parkot','082189484109','15Mbps','2023-06-21',28,'-2.324489257365254, 115.4640076040026','BELUM');
+INSERT INTO `tb_promosi` VALUES ('1094719863333','Ayu Kumala Sari Rahayu','Marabahan','081304250099','15Mbps','2023-07-13',28,'-2.9925893256276948, 114.75403331221786','SUDAH'),('10947198651','Nana','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-21',28,'-2.323248358875917, 115.46437901041834','SUDAH'),('479817491874','Rusdianor','Parkot','082189484109','15Mbps','2023-06-21',28,'-2.324489257365254, 115.4640076040026','BELUM');
 /*!40000 ALTER TABLE `tb_promosi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -285,4 +286,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-12  0:01:24
+-- Dump completed on 2023-07-13 23:20:31
