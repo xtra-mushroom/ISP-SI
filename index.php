@@ -750,6 +750,9 @@ function rupiah($angka){
 							case 'laporan-pemasangan':
 								include "admin/pemasangan/laporan_pemasangan.php";
 								break;
+							case 'laporan-biaya-pemasangan':
+								include "admin/pemasangan/laporan_biayapemasangan.php";
+								break;
 
 							// Promosi
 							case 'data-promosi':

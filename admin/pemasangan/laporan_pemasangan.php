@@ -39,7 +39,7 @@
 				$url_cetak = "admin/pemasangan/cetak.php";
 				$label = "Semua Data Pemasangan";
 			}else{  
-				$query = "SELECT tb_pemasangan.*, tb_promosi.* FROM tb_pemasangan INNER JOIN tb_promosi ON tb_pemasangan.nik = tb_promosi.nik AND tb_pemasangan.tanggal_pasang BETWEEN '$tgl_awal' AND '$tgl_akhir'";
+				$query = "SELECT tb_pemasangan.*, tb_promosi.* FROM tb_pemasangan INNER JOIN tb_promosi ON tb_pemasangan.nik = tb_promosi.nik WHERE tb_pemasangan.tanggal_pasang BETWEEN '$tgl_awal' AND '$tgl_akhir'";
 				$url_cetak = "admin/pemasangan/cetak.php?tgl_awal=$tgl_awal&tgl_akhir=$tgl_akhir&filter=true";
 				$label = "Data Pemasangan Periode Tanggal <b>".tgl_indo($tgl_awal)."</b> s/d <b>".tgl_indo($tgl_akhir)."</b>";
 			}
