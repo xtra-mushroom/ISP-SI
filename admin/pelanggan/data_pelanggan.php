@@ -56,7 +56,7 @@
 							<?php echo $data['status_langganan']; ?>
 						</td>
 						<td align="center">
-							<a href="?page=edit-pelanggan-teknisipemasangan&kode=<?php echo $data['id_pelanggan']; ?>" title="Edit" class="btn btn-success btn-sm">
+							<a href="?page=edit-pelanggan&kode=<?php echo $data['id_pelanggan']; ?>" title="Edit" class="btn btn-success btn-sm">
 								<i class="fa fa-edit"></i>
 							</a>
 						</td>

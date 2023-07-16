@@ -155,6 +155,13 @@ $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
 					<?php echo $data['no_hp_karyawan']; ?>
 				</td>
 			</tr>
+			<tr>
+				<td>Periode Gaji</td>
+				<td>:</td>
+				<td>
+					<?php echo $data['bulan']."-".$data['tahun']; ?>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 

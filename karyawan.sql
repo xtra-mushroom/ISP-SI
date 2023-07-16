@@ -16,6 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `log_data_pelanggan`
+--
+
+DROP TABLE IF EXISTS `log_data_pelanggan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log_data_pelanggan` (
+  `id_pelanggan` varchar(50) NOT NULL,
+  `nama_pelanggan` varchar(255) NOT NULL,
+  `nik_pelanggan` varchar(20) NOT NULL,
+  `alamat_pelanggan` varchar(255) NOT NULL,
+  `no_hp_pelanggan` varchar(15) NOT NULL,
+  `jenis_paket` char(10) NOT NULL,
+  `status_langganan` varchar(20) NOT NULL,
+  `log_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log_data_pelanggan`
+--
+
+LOCK TABLES `log_data_pelanggan` WRITE;
+/*!40000 ALTER TABLE `log_data_pelanggan` DISABLE KEYS */;
+INSERT INTO `log_data_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','1094719863333','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:29:38'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:31:48'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','Aktif','2023-07-15 17:34:45');
+/*!40000 ALTER TABLE `log_data_pelanggan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_gaji`
 --
 
@@ -56,12 +85,11 @@ CREATE TABLE `tb_karyawan` (
   `jenis_kelamin` enum('Laki-Laki','Perempuan') DEFAULT NULL,
   `posisi` varchar(50) DEFAULT NULL,
   `alamat_karyawan` varchar(255) DEFAULT NULL,
-  `nik_karyawan` varchar(20) NOT NULL,
+  `nik_karyawan` varchar(20) DEFAULT NULL,
   `no_hp_karyawan` varchar(15) DEFAULT NULL,
   `tempat_lahir` varchar(50) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
-  `foto` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`nik_karyawan`)
+  `foto` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -71,7 +99,7 @@ CREATE TABLE `tb_karyawan` (
 
 LOCK TABLES `tb_karyawan` WRITE;
 /*!40000 ALTER TABLE `tb_karyawan` DISABLE KEYS */;
-INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png');
+INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png'),(32,'Lily Syifa',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tb_karyawan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,9 +157,27 @@ CREATE TABLE `tb_pelanggan` (
 
 LOCK TABLES `tb_pelanggan` WRITE;
 /*!40000 ALTER TABLE `tb_pelanggan` DISABLE KEYS */;
-INSERT INTO `tb_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','1094719863333','Marabahan','081304250099','15Mbps','2023-07-12','Aktif'),('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23','Aktif');
+INSERT INTO `tb_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','2023-07-12','Tidak Aktif'),('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23','Aktif');
 /*!40000 ALTER TABLE `tb_pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`lava`@`localhost`*/ /*!50003 TRIGGER log_pelanggan AFTER UPDATE ON tb_pelanggan FOR EACH ROW
+BEGIN
+INSERT INTO log_data_pelanggan VALUES (OLD.id_pelanggan, OLD.nama_pelanggan, OLD.nik_pelanggan, OLD.alamat_pelanggan, OLD.no_hp_pelanggan, OLD.jenis_paket, OLD.status_langganan, CURRENT_TIMESTAMP);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `tb_pemasangan`
@@ -171,13 +217,12 @@ DROP TABLE IF EXISTS `tb_pengguna`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_pengguna` (
-  `id_pengguna` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pengguna` int(9) DEFAULT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `level` enum('Admin','Sales','Teknisi Pemasangan','Teknisi Perbaikan') NOT NULL,
-  PRIMARY KEY (`id_pengguna`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `level` enum('Admin','Sales','Teknisi Pemasangan','Teknisi Perbaikan') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,7 +231,7 @@ CREATE TABLE `tb_pengguna` (
 
 LOCK TABLES `tb_pengguna` WRITE;
 /*!40000 ALTER TABLE `tb_pengguna` DISABLE KEYS */;
-INSERT INTO `tb_pengguna` VALUES (27,'Demitri Erlangga SE.','admin','21232f297a57a5a743894a0e4a801fc3','Admin'),(28,'Amelia','sales','9ed083b1436e5f40ef984b28255eef18','Sales'),(29,'Aliyanto','pemasangan','202cb962ac59075b964b07152d234b70','Teknisi Pemasangan'),(30,'Rahman','perbaikan','202cb962ac59075b964b07152d234b70','Teknisi Perbaikan');
+INSERT INTO `tb_pengguna` VALUES (27,'Demitri Erlangga SE.','admin','21232f297a57a5a743894a0e4a801fc3','Admin'),(28,'Amelia','sales','9ed083b1436e5f40ef984b28255eef18','Sales'),(29,'Aliyanto','pemasangan','202cb962ac59075b964b07152d234b70','Teknisi Pemasangan'),(30,'Rahman','perbaikan','202cb962ac59075b964b07152d234b70','Teknisi Perbaikan'),(32,'Lily Syifa','admin2','c84258e9c39059a89ab77d846ddab909','Admin');
 /*!40000 ALTER TABLE `tb_pengguna` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,4 +331,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-13 23:20:31
+-- Dump completed on 2023-07-16 19:44:44

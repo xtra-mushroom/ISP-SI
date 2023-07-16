@@ -20,7 +20,7 @@
 			if(isset($_GET['id_pelanggan'])){
 				$id = $_GET['id_pelanggan'];
 				$text = "ID Pelanggan : $id";
-				$queryGenerate = "SELECT nama_pelanggan, alamat_pelanggan, no_hp_pelanggan FROM tb_pelanggan WHERE id_pelanggan='$id'";
+				$queryGenerate = "SELECT nama_pelanggan, alamat_pelanggan, no_hp_pelanggan FROM tb_pelanggan WHERE id_pelanggan='$id' AND status_langganan='Aktif'";
 				$result = mysqli_query($koneksi, $queryGenerate);
 				$pelanggan = mysqli_fetch_assoc($result);
 				$namaPelanggan = $pelanggan['nama_pelanggan'];

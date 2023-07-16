@@ -55,7 +55,7 @@
 						</td>
 						<td>
 							<?php 
-							$bulan = $data['bulan']." - ".$data['tahun'];
+							$bulan = $data['bulan']."-".$data['tahun'];
 							echo $bulan;
 							?>
 						</td>

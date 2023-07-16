@@ -29,7 +29,7 @@
 
 				<?php
 				$no = 1;
-				$sql = $koneksi->query("SELECT * from tb_karyawan WHERE posisi != 'Admin' AND posisi != 'Sales' AND posisi != 'Teknisi Pemasangan' AND posisi != 'Teknisi Perbaikan'");
+				$sql = $koneksi->query("SELECT * from tb_karyawan");
 				while ($data= $sql->fetch_assoc()) {
 				?>
 					<tr>
@@ -59,6 +59,10 @@
 							<?php echo $data['posisi']; ?>
 						</td>
 						<td>
+							<?php 
+							$pos = $data['posisi'];
+							if($pos != 'Admin' AND $pos != 'Sales' AND $pos != 'Teknisi Pemasangan' AND $pos != 'Teknisi Perbaikan'){
+							?>
 							<a href="?page=view-karyawan&kode=<?php echo $data['id']; ?>" title="Detail"
 							 class="btn btn-info btn-sm">
 								<i class="fa fa-eye"></i>
@@ -70,6 +74,18 @@
 							<a href="?page=del-karyawan&kode=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"
 							 title="Hapus" class="btn btn-danger btn-sm">
 								<i class="fa fa-trash"></i>
+							</a>
+							<?php
+							}elseif($pos = 'Admin' AND $pos = 'Sales' AND $pos = 'Teknisi Pemasangan' AND $pos = 'Teknisi Perbaikan'){
+							?>
+							<a href="?page=view-karyawan&kode=<?php echo $data['id']; ?>" title="Detail"
+							 class="btn btn-info btn-sm">
+								<i class="fa fa-eye"></i>
+							</a>
+							<?php
+							}
+							?>
+							
 						</td>
 					</tr>
 
