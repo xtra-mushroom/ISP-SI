@@ -108,20 +108,24 @@ if(isset($_POST['Simpan'])){
 		$alamat = $_POST['alamat'];
 		$noHP = $_POST['nomor_hp'];
 		$posisi = $_POST['posisi'];
+		$id = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data karyawan baru)";
 
 		$sqlID = "SELECT id FROM tb_karyawan ORDER BY id DESC LIMIT 1";
 		$resultID = mysqli_query($koneksi, $sqlID);
 		$fetchID = mysqli_fetch_assoc($resultID);
-		$id = (int)$fetchID['id']+1;
+		$idKar = (int)$fetchID['id']+1;
 		// var_dump($id);
 
 		$target = "profil&gaji/fotokaryawan/";
 		$foto = @$_FILES['foto']['name'];
 		move_uploaded_file($sumber, $target.$foto);
 
-		$sql_simpan = "INSERT INTO tb_karyawan VALUES ($id, '$nama', '$jenisKel', '$posisi', '$alamat', '$nik', '$noHP', '$tempatLahir', '$tanggalLahir', '$foto');";
+		$sql_simpan = "INSERT INTO tb_karyawan VALUES ($idKar, '$nama', '$jenisKel', '$posisi', '$alamat', '$nik', '$noHP', '$tempatLahir', '$tanggalLahir', '$foto');";
+		$sql_simpan .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $id, null);";
 
-		$query_simpan = mysqli_query($koneksi, $sql_simpan);
+
+		$query_simpan = mysqli_multi_query($koneksi, $sql_simpan);
 		// var_dump($sql_simpan);
 		mysqli_close($koneksi);
 

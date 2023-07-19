@@ -8,8 +8,14 @@ if(isset($_GET['kode'])){
 ?>
 
 <?php
-    $sql_hapus = "DELETE FROM tb_gaji WHERE id_gaji='".$_GET['kode']."'";
-    $query_hapus = mysqli_query($koneksi, $sql_hapus);
+    $idGaji = $_GET['kode'];
+    $id = $_SESSION['ses_id'];
+    $aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menghapus data gaji)";
+
+    $sql_hapus = "DELETE FROM tb_gaji WHERE id_gaji=$idGaji;";
+	$sql_hapus .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $id, null);";
+    $query_hapus = mysqli_multi_query($koneksi, $sql_hapus);
+
     if ($query_hapus) {
         echo "<script>
         Swal.fire({title: 'Hapus Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'

@@ -63,8 +63,12 @@ if (isset($_POST['Simpan'])) {
 	$fetchID = mysqli_fetch_assoc($resultID);
 	$id = (int)$fetchID['id']+1;
 
+	$idUser = $_SESSION['ses_id'];
+	$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data pengguna sistem)";
+
 	$sql_simpan = "INSERT INTO tb_pengguna VALUES ($id, '$nama', '$username', md5('$password'), '$level');";
 	$sql_simpan .= "INSERT INTO tb_karyawan (id, nama_karyawan, posisi) VALUES ($id, '$nama', '$level');";
+	$sql_simpan .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
 	$query_simpan = mysqli_multi_query($koneksi, $sql_simpan);
 	// var_dump($sql_simpan);
 	mysqli_close($koneksi);

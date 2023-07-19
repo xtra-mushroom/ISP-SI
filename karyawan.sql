@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `log_aktivitas`
+--
+
+DROP TABLE IF EXISTS `log_aktivitas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log_aktivitas` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `aktivitas` text DEFAULT NULL,
+  `id_karyawan` int(9) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log_aktivitas`
+--
+
+LOCK TABLES `log_aktivitas` WRITE;
+/*!40000 ALTER TABLE `log_aktivitas` DISABLE KEYS */;
+INSERT INTO `log_aktivitas` VALUES (2,'http://localhost:8080/index.php?page=add-gaji (Menambahkan data gaji baru)',27,'2023-07-18 11:37:45'),(3,'http://localhost:8080/index.php?page=edit-gaji&kode=620234056 (Mengubah data gaji)',32,'2023-07-18 14:59:29'),(4,'http://localhost:8080/index.php?page=del-gaji&kode=620234056 (Menghapus data gaji)',32,'2023-07-18 15:04:18'),(5,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:11:19'),(6,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:13:43'),(11,'http://localhost:8080/index.php?page=edit-karyawan&kode=33 (Mengubah data karyawan)',32,'2023-07-18 15:25:39'),(12,'http://localhost:8080/index.php?page=del-karyawan&kode=34 (Menghapus data karyawan)',32,'2023-07-18 15:29:37'),(13,'http://localhost:8080/index.php?page=edit-pelanggan&kode=PI26250099 (Mengubah data pelanggan)',27,'2023-07-19 02:37:18'),(14,'http://localhost:8080/index.php?page=add-pemasangan-teknisipemasangan&kode=479817491874 (Menambahkan data pemasangan)',29,'2023-07-19 03:12:00'),(16,'http://localhost:8080/index.php?page=edit-pemasangan-teknisipemasangan&kode=261113 (Mengubah data pemasangan)',29,'2023-07-19 03:14:47'),(17,'http://localhost:8080/index.php?page=del-pemasangan-teknisipemasangan&kode=261113&nik=479817491874 (Menghapus data pemasangan)',29,'2023-07-19 03:17:45'),(18,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:21:37'),(19,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:25:48'),(20,'http://localhost:8080/index.php?page=del-pengguna&kode=35 (Menghapus data pengguna sistem)',27,'2023-07-19 03:25:55'),(21,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:27:47');
+/*!40000 ALTER TABLE `log_aktivitas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `log_data_pelanggan`
 --
 
@@ -40,7 +66,7 @@ CREATE TABLE `log_data_pelanggan` (
 
 LOCK TABLES `log_data_pelanggan` WRITE;
 /*!40000 ALTER TABLE `log_data_pelanggan` DISABLE KEYS */;
-INSERT INTO `log_data_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','1094719863333','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:29:38'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:31:48'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','Aktif','2023-07-15 17:34:45');
+INSERT INTO `log_data_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','1094719863333','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:29:38'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','081304250099','15Mbps','Aktif','2023-07-15 17:31:48'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','Aktif','2023-07-15 17:34:45'),('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','Tidak Aktif','2023-07-19 02:37:18');
 /*!40000 ALTER TABLE `log_data_pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +125,7 @@ CREATE TABLE `tb_karyawan` (
 
 LOCK TABLES `tb_karyawan` WRITE;
 /*!40000 ALTER TABLE `tb_karyawan` DISABLE KEYS */;
-INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png'),(32,'Lily Syifa',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png'),(32,'Lily Syifa',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL),(33,'Rahayu','Perempuan','IT Support','Marabahan','109471986512','082718463621','Birayang','1998-12-04','kisspng-infographic-polygonal-chain-clip-art-ppt-infographic-5a878637a77009.9047318515188311596858.png'),(34,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(35,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(36,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tb_karyawan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +183,7 @@ CREATE TABLE `tb_pelanggan` (
 
 LOCK TABLES `tb_pelanggan` WRITE;
 /*!40000 ALTER TABLE `tb_pelanggan` DISABLE KEYS */;
-INSERT INTO `tb_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','2023-07-12','Tidak Aktif'),('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23','Aktif');
+INSERT INTO `tb_pelanggan` VALUES ('PI26250099','Ayu Kumala Sari Rahayu','10947198631','Marabahan','08130425009','15Mbps','2023-07-12','Aktif'),('PI26948414','Nana','10947198651','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-23','Aktif');
 /*!40000 ALTER TABLE `tb_pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -231,7 +257,7 @@ CREATE TABLE `tb_pengguna` (
 
 LOCK TABLES `tb_pengguna` WRITE;
 /*!40000 ALTER TABLE `tb_pengguna` DISABLE KEYS */;
-INSERT INTO `tb_pengguna` VALUES (27,'Demitri Erlangga SE.','admin','21232f297a57a5a743894a0e4a801fc3','Admin'),(28,'Amelia','sales','9ed083b1436e5f40ef984b28255eef18','Sales'),(29,'Aliyanto','pemasangan','202cb962ac59075b964b07152d234b70','Teknisi Pemasangan'),(30,'Rahman','perbaikan','202cb962ac59075b964b07152d234b70','Teknisi Perbaikan'),(32,'Lily Syifa','admin2','c84258e9c39059a89ab77d846ddab909','Admin');
+INSERT INTO `tb_pengguna` VALUES (27,'Demitri Erlangga SE.','admin','21232f297a57a5a743894a0e4a801fc3','Admin'),(28,'Amelia','sales','9ed083b1436e5f40ef984b28255eef18','Sales'),(29,'Aliyanto','pemasangan','202cb962ac59075b964b07152d234b70','Teknisi Pemasangan'),(30,'Rahman','perbaikan','202cb962ac59075b964b07152d234b70','Teknisi Perbaikan'),(32,'Lily Syifa','admin2','c84258e9c39059a89ab77d846ddab909','Admin'),(36,'Tono Martono','sales2','bc62e62c719e0185b0874a4c8d4f87cf','Sales');
 /*!40000 ALTER TABLE `tb_pengguna` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -331,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-16 19:44:44
+-- Dump completed on 2023-07-19 11:34:13

@@ -105,10 +105,13 @@ if(isset($_GET['kode'])){
 		$bonus = $_POST['bonus'];
 		$bulan = $_POST['bulan'];
 		$tahun = $_POST['tahun'];
+		$id = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data gaji)";
 
-        $sql_ubah = "UPDATE tb_gaji SET id_karyawan=$idKaryawan, posisi='$posisi', gaji_pokok=$gajiPokok, bonus=$bonus, bulan=$bulan, tahun=$tahun WHERE id_gaji=$idGaji";
+        $sql_ubah = "UPDATE tb_gaji SET id_karyawan=$idKaryawan, posisi='$posisi', gaji_pokok=$gajiPokok, bonus=$bonus, bulan=$bulan, tahun=$tahun WHERE id_gaji=$idGaji;";
+		$sql_ubah .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $id, null);";
 		// var_dump($sql_ubah);
-        $query_ubah = mysqli_query($koneksi, $sql_ubah);
+        $query_ubah = mysqli_multi_query($koneksi, $sql_ubah);
         mysqli_close($koneksi);
 
 		if($query_ubah) {

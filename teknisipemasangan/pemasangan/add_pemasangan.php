@@ -174,11 +174,15 @@ if(isset($_GET['kode'])){
 		$hpDigits = substr($hp,-6,6);
 		$idPelanggan = "PI26".$hpDigits;
 
+		$idUser = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data pemasangan)";
+
 
         $sql = "INSERT INTO tb_pemasangan VALUES ('$nik', '$idPasang', '$idPelanggan', $totalBiaya, $idTeknisi, '$tglPasang', '$ket');";
 		$sql .= "INSERT INTO tb_pelanggan VALUES ('$idPelanggan', '$namaPelanggan', '$nik', '$alamatPelanggan', '$noHpPelanggan', '$jenisPaket', '$tglPasang', 'Aktif');";
 		$sql .= "UPDATE tb_promosi SET status_pasang='SUDAH' WHERE nik='$nik';";
-		// var_dump($sql);
+		$sql .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
+			// var_dump($sql);
         $query_simpan = mysqli_multi_query($koneksi, $sql);
         mysqli_close($koneksi);
 

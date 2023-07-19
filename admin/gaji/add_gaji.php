@@ -77,15 +77,19 @@
 		$bonus = $_POST['bonus'];
 		$bulan = $_POST['bulan'];
 		$tahun = $_POST['tahun'];
+		$id = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data gaji baru)";
 
 		if(strlen((string)$bulan) < 2){
 			$zeroBulan = "0".$bulan;
 		}
 		$idGaji = (string)$zeroBulan.(string)$tahun.(string)rand(1111,9999); (int)$idGaji;
 
-        $sql_simpan = "INSERT INTO tb_gaji VALUES ($idGaji, $idKaryawan, '$posisi', $gajiPokok, $bonus, $bulan, $tahun)";
-		// var_dump($sql_simpan);
-        $query_simpan = mysqli_query($koneksi, $sql_simpan);
+        $sql_simpan = "INSERT INTO tb_gaji VALUES ($idGaji, $idKaryawan, '$posisi', $gajiPokok, $bonus, $bulan, $tahun);";
+		$sql_simpan .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $id, null);";
+
+		var_dump($sql_simpan);
+        $query_simpan = mysqli_multi_query($koneksi, $sql_simpan);
         mysqli_close($koneksi);
 
 		if($query_simpan){

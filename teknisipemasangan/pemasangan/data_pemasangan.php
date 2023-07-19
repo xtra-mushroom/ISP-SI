@@ -128,7 +128,7 @@
 							<?php echo $data['jenis_paket']; ?>
 						</td>
 						<td>
-							<?php echo $data['total_biaya']; ?>
+							<?php echo rupiah($data['total_biaya']); ?>
 						</td>
 						<td>
 							<?php echo $data['tanggal_pasang']; ?>

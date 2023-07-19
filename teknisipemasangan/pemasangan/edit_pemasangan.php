@@ -132,8 +132,11 @@ if(isset($_GET['kode'])){
 		$tgl = date_create($_POST['tanggal']);
 		$tglPasang = date_format($tgl, "Y-m-d");
 
+		$idUser = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data pemasangan)";
 
-        $sql = "UPDATE tb_pemasangan SET total_biaya=$totalBiaya, id_teknisipemasangan=$idTeknisi, tanggal_pasang='$tglPasang', keterangan='$ket' WHERE nik='$nik'";
+        $sql = "UPDATE tb_pemasangan SET total_biaya=$totalBiaya, id_teknisipemasangan=$idTeknisi, tanggal_pasang='$tglPasang', keterangan='$ket' WHERE nik='$nik';";
+		$sql .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
 		// var_dump($sql);
         $query_ubah = mysqli_multi_query($koneksi, $sql);
         mysqli_close($koneksi);

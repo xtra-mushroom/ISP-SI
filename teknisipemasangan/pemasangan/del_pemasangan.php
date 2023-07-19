@@ -13,10 +13,14 @@ if(isset($_GET['kode']) && isset($_GET['nik'])){
     // if (file_exists("foto/$foto")){
     //     unlink("foto/$foto");
     // }
+    $idUser = $_SESSION['ses_id'];
+    $aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menghapus data pemasangan)";
 
     $sql = "DELETE FROM tb_pemasangan WHERE id_pemasangan='$idPasang';";
     $sql .= "DELETE FROM tb_pelanggan WHERE nik_pelanggan='$nik';";
     $sql .= "UPDATE tb_promosi SET status_pasang='BELUM' WHERE nik='$nik';";
+	$sql .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
+    
     $query_hapus = mysqli_multi_query($koneksi, $sql);
     if($query_hapus){
         echo "<script>

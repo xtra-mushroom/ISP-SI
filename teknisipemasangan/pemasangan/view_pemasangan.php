@@ -69,7 +69,7 @@ if(isset($_GET['kode'])){
 								<b>Total Biaya Pemasangan</b>
 							</td>
 							<td>:
-								<?php echo $data['total_biaya']; ?>
+								<?php echo rupiah($data['total_biaya']); ?>
 							</td>
 						</tr>
                         <tr>

@@ -90,9 +90,12 @@ if(isset($_POST['Ubah'])){
 	$noHP = $_POST['no_hp'];
 	$jenisPaket = $_POST['jenis_paket'];
 	$status = $_POST['status'];
+	$idUser = $_SESSION['ses_id'];
+	$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data pelanggan)";
 
-    $sql_ubah = "UPDATE tb_pelanggan SET nama_pelanggan='$nama', nik_pelanggan='$nik', alamat_pelanggan='$alamat', no_hp_pelanggan='$noHP', jenis_paket='$jenisPaket', status_langganan='$status' WHERE id_pelanggan='$id'"; // CAUTIONS FOR TRIGGER (log_data_pelanggan)
-    $query_ubah = mysqli_query($koneksi, $sql_ubah);
+    $sql_ubah = "UPDATE tb_pelanggan SET nama_pelanggan='$nama', nik_pelanggan='$nik', alamat_pelanggan='$alamat', no_hp_pelanggan='$noHP', jenis_paket='$jenisPaket', status_langganan='$status' WHERE id_pelanggan='$id';"; // CAUTIONS FOR TRIGGER (log_data_pelanggan)
+	$sql_ubah .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
+    $query_ubah = mysqli_multi_query($koneksi, $sql_ubah);
 
     if ($query_ubah) {
         echo "<script>
