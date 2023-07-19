@@ -309,6 +309,13 @@ function rupiah($angka){
 										<p>Data Gaji</p>
 									</a>
 								</li>
+
+								<li class="nav-item">
+									<a href="?page=laporan-aktivitas" class="nav-link">
+										<i class="far fa fa-newspaper nav-icon"></i>
+										<p>Data Log Aktivitas</p>
+									</a>
+								</li>
 							</li>
 
 							<li class="nav-header">Setting</li>
@@ -602,6 +609,10 @@ function rupiah($angka){
 								
 							case 'laporan-data-karyawan':
 								include "report/cetak_karyawan.php";
+								break;
+
+							case 'laporan-aktivitas':
+								include "logaktivitas/laporan_aktivitas.php";
 								break;
 
 							case 'data-profil-gaji':

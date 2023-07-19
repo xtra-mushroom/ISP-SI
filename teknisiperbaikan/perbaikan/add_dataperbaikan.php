@@ -103,10 +103,14 @@ function sendSms($noHp, $pesan){
 		$tanggal = $_POST['tanggal_perbaikan'];
 		$lamaPerbaikan = $_POST['lama_penanganan'];
 		$idTeknisi = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data perbaikan)";
 
         $sql = "INSERT INTO tb_perbaikan VALUES (null, '$idKeluhan', '$idPelanggan', '$penanganan', '$tanggal', '$lamaPerbaikan', $idTeknisi);";
 		$sql .= "UPDATE tb_keluhan SET status_penanganan='Sudah Ditangani' WHERE id_keluhan='$idKeluhan';";
+		$sql .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idTeknisi, null);";
+
         $query_simpan = mysqli_multi_query($koneksi, $sql);
+
 		// var_dump($sql_simpan);
 
 		if ($query_simpan) {

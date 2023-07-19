@@ -97,10 +97,15 @@
 		$lalongVal = $_POST['lalong_val'];
 		$statusPasang = "BELUM";
 
-		$sql_simpan = "INSERT INTO tb_promosi VALUES ('$nik', '$nama', '$alamat', '$noHP', '$jenisPaket', '$tanggalDeal', $idSales, '$lalongVal', '$statusPasang')";
+		$idUser = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data promosi)";
+
+		$sql_simpan = "INSERT INTO tb_promosi VALUES ('$nik', '$nama', '$alamat', '$noHP', '$jenisPaket', '$tanggalDeal', $idSales, '$lalongVal', '$statusPasang');";
+		$sql_simpan .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
+
 		// var_dump($sql_simpan);
 		
-        $query_simpan = mysqli_query($koneksi, $sql_simpan);
+        $query_simpan = mysqli_multi_query($koneksi, $sql_simpan);
         mysqli_close($koneksi);
 
 		if ($query_simpan) {

@@ -1,5 +1,5 @@
 <?php
-$koneksi = mysqli_connect("localhost", "lava", "linolee", "karyawan2");
+$koneksi = mysqli_connect("localhost", "root", "", "karyawan");
 
 $base_url = "http://localhost/karyawan_indihome";
 ?>

@@ -28,7 +28,7 @@ CREATE TABLE `log_aktivitas` (
   `id_karyawan` int(9) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `log_aktivitas` (
 
 LOCK TABLES `log_aktivitas` WRITE;
 /*!40000 ALTER TABLE `log_aktivitas` DISABLE KEYS */;
-INSERT INTO `log_aktivitas` VALUES (2,'http://localhost:8080/index.php?page=add-gaji (Menambahkan data gaji baru)',27,'2023-07-18 11:37:45'),(3,'http://localhost:8080/index.php?page=edit-gaji&kode=620234056 (Mengubah data gaji)',32,'2023-07-18 14:59:29'),(4,'http://localhost:8080/index.php?page=del-gaji&kode=620234056 (Menghapus data gaji)',32,'2023-07-18 15:04:18'),(5,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:11:19'),(6,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:13:43'),(11,'http://localhost:8080/index.php?page=edit-karyawan&kode=33 (Mengubah data karyawan)',32,'2023-07-18 15:25:39'),(12,'http://localhost:8080/index.php?page=del-karyawan&kode=34 (Menghapus data karyawan)',32,'2023-07-18 15:29:37'),(13,'http://localhost:8080/index.php?page=edit-pelanggan&kode=PI26250099 (Mengubah data pelanggan)',27,'2023-07-19 02:37:18'),(14,'http://localhost:8080/index.php?page=add-pemasangan-teknisipemasangan&kode=479817491874 (Menambahkan data pemasangan)',29,'2023-07-19 03:12:00'),(16,'http://localhost:8080/index.php?page=edit-pemasangan-teknisipemasangan&kode=261113 (Mengubah data pemasangan)',29,'2023-07-19 03:14:47'),(17,'http://localhost:8080/index.php?page=del-pemasangan-teknisipemasangan&kode=261113&nik=479817491874 (Menghapus data pemasangan)',29,'2023-07-19 03:17:45'),(18,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:21:37'),(19,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:25:48'),(20,'http://localhost:8080/index.php?page=del-pengguna&kode=35 (Menghapus data pengguna sistem)',27,'2023-07-19 03:25:55'),(21,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:27:47');
+INSERT INTO `log_aktivitas` VALUES (2,'http://localhost:8080/index.php?page=add-gaji (Menambahkan data gaji baru)',27,'2023-07-18 11:37:45'),(3,'http://localhost:8080/index.php?page=edit-gaji&kode=620234056 (Mengubah data gaji)',32,'2023-07-18 14:59:29'),(4,'http://localhost:8080/index.php?page=del-gaji&kode=620234056 (Menghapus data gaji)',32,'2023-07-18 15:04:18'),(5,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:11:19'),(6,'http://localhost:8080/index.php?page=add-karyawan (Menambahkan data karyawan baru)',32,'2023-07-18 15:13:43'),(11,'http://localhost:8080/index.php?page=edit-karyawan&kode=33 (Mengubah data karyawan)',32,'2023-07-18 15:25:39'),(12,'http://localhost:8080/index.php?page=del-karyawan&kode=34 (Menghapus data karyawan)',32,'2023-07-18 15:29:37'),(13,'http://localhost:8080/index.php?page=edit-pelanggan&kode=PI26250099 (Mengubah data pelanggan)',27,'2023-07-19 02:37:18'),(14,'http://localhost:8080/index.php?page=add-pemasangan-teknisipemasangan&kode=479817491874 (Menambahkan data pemasangan)',29,'2023-07-19 03:12:00'),(16,'http://localhost:8080/index.php?page=edit-pemasangan-teknisipemasangan&kode=261113 (Mengubah data pemasangan)',29,'2023-07-19 03:14:47'),(17,'http://localhost:8080/index.php?page=del-pemasangan-teknisipemasangan&kode=261113&nik=479817491874 (Menghapus data pemasangan)',29,'2023-07-19 03:17:45'),(18,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:21:37'),(19,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:25:48'),(20,'http://localhost:8080/index.php?page=del-pengguna&kode=35 (Menghapus data pengguna sistem)',27,'2023-07-19 03:25:55'),(21,'http://localhost:8080/index.php?page=add-pengguna (Menambahkan data pengguna sistem)',27,'2023-07-19 03:27:47'),(22,'http://localhost:8080/index.php?page=add-promosi-sales (Menambahkan data promosi)',28,'2023-07-19 03:48:52'),(23,'http://localhost:8080/index.php?page=edit-promosi-sales&kode=4798174918007 (Mengubah data promosi)',28,'2023-07-19 03:52:46'),(24,'http://localhost:8080/index.php?page=del-promosi-sales&kode=479817491874 (Menghapus data promosi)',28,'2023-07-19 03:54:54'),(25,'http://localhost:8080/index.php?id_pelanggan=PI26250099&page=add-keluhan (Menambahkan data keluhan pelanggan)',36,'2023-07-19 04:01:57'),(26,'http://localhost:8080/index.php?page=add-perbaikan&kode=3&pel=PI26948414 (Menambahkan data perbaikan)',30,'2023-07-19 05:24:23'),(27,'http://localhost:8080/index.php?page=edit-perbaikan-teknisiperbaikan&kode=5&pel=PI26948414 (Mengubah data perbaikan)',30,'2023-07-19 05:26:19'),(28,'http://localhost:8080/index.php?page=add-perbaikan&kode=4&pel=PI26250099 (Menambahkan data perbaikan)',30,'2023-07-19 05:35:31'),(29,'http://localhost:8080/index.php?page=edit-perbaikan-teknisiperbaikan&kode=7&pel=PI26250099 (Mengubah data perbaikan)',30,'2023-07-19 05:37:33'),(31,'http://localhost:8080/index.php?page=add-perbaikan&kode=4&pel=PI26250099 (Menambahkan data perbaikan)',30,'2023-07-19 05:42:09'),(32,'http://localhost:8080/index.php?page=del-perbaikan-teknisiperbaikan&kode=8&pel=PI26250099 (Menghapus data perbaikan)',30,'2023-07-19 05:42:36'),(33,'http://localhost:8080/index.php?page=add-perbaikan&kode=4&pel=PI26250099 (Menambahkan data perbaikan)',30,'2023-07-19 05:43:52'),(34,'http://localhost:8080/index.php?page=edit-data-profil&id=32 (Mengubah data profil)',32,'2023-07-19 05:50:59');
 /*!40000 ALTER TABLE `log_aktivitas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `tb_karyawan` (
 
 LOCK TABLES `tb_karyawan` WRITE;
 /*!40000 ALTER TABLE `tb_karyawan` DISABLE KEYS */;
-INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png'),(32,'Lily Syifa',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL),(33,'Rahayu','Perempuan','IT Support','Marabahan','109471986512','082718463621','Birayang','1998-12-04','kisspng-infographic-polygonal-chain-clip-art-ppt-infographic-5a878637a77009.9047318515188311596858.png'),(34,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(35,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(36,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `tb_karyawan` VALUES (27,'Demitri Erlangga SE.','Laki-Laki','Admin','Jl. A. Yani KM.01, Marabahan','1690234523','0827184636112','Banjarmasin','1997-02-19','demitri.png'),(28,'Amelia','Perempuan','Sales','Marabahan','1690345211','082718463699','Banjarmasin','1999-12-09','amelia.jpeg'),(30,'Rahman','Laki-Laki','Teknisi Perbaikan','Jl. A. Yani KM.03, Marabahan','1690345546','0899128734261','Kota Baru','1997-02-17','rahman.png'),(29,'Aliyanto','Laki-Laki','Teknisi Pemasangan','Anjir Muara','1690346793','0827184636156','Banjarmasin','1992-09-25','aliyanto.png'),(31,'Agung Setia','Laki-Laki','Supervisor','Jl. A. Yani, Marabahan','479817491879','0827184636198','Kandangan','1990-06-08','circle.png'),(32,'Lily Syifa','Perempuan','Admin','Martapura','63080546060009','0827184636454','Barabai','1997-06-20','imattsmart-B9AZKx17q5c-unsplash.jpg'),(33,'Rahayu','Perempuan','IT Support','Marabahan','109471986512','082718463621','Birayang','1998-12-04','kisspng-infographic-polygonal-chain-clip-art-ppt-infographic-5a878637a77009.9047318515188311596858.png'),(34,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(35,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL),(36,'Tono Martono',NULL,'Sales',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tb_karyawan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `tb_keluhan` (
   `status_penanganan` enum('Sudah Ditangani','Belum Ditangani') DEFAULT NULL,
   `id_karyawan` int(11) NOT NULL,
   PRIMARY KEY (`id_keluhan`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +153,7 @@ CREATE TABLE `tb_keluhan` (
 
 LOCK TABLES `tb_keluhan` WRITE;
 /*!40000 ALTER TABLE `tb_keluhan` DISABLE KEYS */;
-INSERT INTO `tb_keluhan` VALUES (2,'PI26948414','2023-06-25','Kabel outdoor putus, butuh diganti','Sudah Ditangani',29),(3,'PI26948414','2023-07-08','Lampu merah pada router terus berkedip','Belum Ditangani',27);
+INSERT INTO `tb_keluhan` VALUES (2,'PI26948414','2023-06-25','Kabel outdoor putus, butuh diganti','Sudah Ditangani',29),(3,'PI26948414','2023-07-08','Lampu merah pada router terus berkedip','Belum Ditangani',27),(4,'PI26250099','2023-07-19','Internet gangguan sudah lebih 2 hari','Sudah Ditangani',36);
 /*!40000 ALTER TABLE `tb_keluhan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,7 +277,7 @@ CREATE TABLE `tb_perbaikan` (
   `lama_perbaikan` varchar(200) DEFAULT NULL,
   `id_teknisi` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_perbaikan`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,7 +286,7 @@ CREATE TABLE `tb_perbaikan` (
 
 LOCK TABLES `tb_perbaikan` WRITE;
 /*!40000 ALTER TABLE `tb_perbaikan` DISABLE KEYS */;
-INSERT INTO `tb_perbaikan` VALUES (4,'2','PI26948414','Kabel sudah diganti, internet sudah normal kembali','2023-06-29','',30);
+INSERT INTO `tb_perbaikan` VALUES (4,'2','PI26948414','Kabel sudah diganti, internet sudah normal kembali','2023-06-29','',30),(9,'4','PI26250099','Router dibongkar dan dibersihkan, kemudian direstart','2023-07-19','1 jam',30);
 /*!40000 ALTER TABLE `tb_perbaikan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,7 +344,7 @@ CREATE TABLE `tb_promosi` (
 
 LOCK TABLES `tb_promosi` WRITE;
 /*!40000 ALTER TABLE `tb_promosi` DISABLE KEYS */;
-INSERT INTO `tb_promosi` VALUES ('1094719863333','Ayu Kumala Sari Rahayu','Marabahan','081304250099','15Mbps','2023-07-13',28,'-2.9925893256276948, 114.75403331221786','SUDAH'),('10947198651','Nana','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-21',28,'-2.323248358875917, 115.46437901041834','SUDAH'),('479817491874','Rusdianor','Parkot','082189484109','15Mbps','2023-06-21',28,'-2.324489257365254, 115.4640076040026','BELUM');
+INSERT INTO `tb_promosi` VALUES ('1094719863333','Ayu Kumala Sari Rahayu','Marabahan','081304250099','15Mbps','2023-07-13',28,'-2.9925893256276948, 114.75403331221786','SUDAH'),('10947198651','Nana','Paringin Kota, Haur Batu RT.12','08218948414','10Mbps','2023-06-21',28,'-2.323248358875917, 115.46437901041834','SUDAH'),('4798174918007','Sumiati','Marabahan Kota','089912121342','15Mbps','2023-07-19',28,'-2.896934233773529, 114.69198619279818','BELUM');
 /*!40000 ALTER TABLE `tb_promosi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -357,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-19 11:34:13
+-- Dump completed on 2023-07-19 13:52:37

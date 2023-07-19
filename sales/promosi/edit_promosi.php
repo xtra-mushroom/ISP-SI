@@ -95,8 +95,12 @@ if(isset($_POST['Ubah'])){
 	$lalongVal = $_POST['lalong_val'];
 	$statusPasang = "BELUM";
 
-    $sql_ubah = "UPDATE tb_promosi SET nik='$nikBaru', nama='$nama', alamat='$alamat', nomor_hp='$noHP', jenis_paket='$jenisPaket', tanggal_deal='$tanggalDeal', id_sales='$idSales', lalong_val='$lalongVal', status_pasang='$statusPasang' WHERE nik='$nik'";
-    $query_ubah = mysqli_query($koneksi, $sql_ubah);
+	$idUser = $_SESSION['ses_id'];
+	$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data promosi)";
+
+    $sql_ubah = "UPDATE tb_promosi SET nik='$nikBaru', nama='$nama', alamat='$alamat', nomor_hp='$noHP', jenis_paket='$jenisPaket', tanggal_deal='$tanggalDeal', id_sales='$idSales', lalong_val='$lalongVal', status_pasang='$statusPasang' WHERE nik='$nik';";
+	$sql_ubah .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
+	$query_ubah = mysqli_multi_query($koneksi, $sql_ubah);
 	// var_dump($sql_ubah);
 
     if($query_ubah) {

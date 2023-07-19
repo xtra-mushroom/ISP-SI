@@ -17,16 +17,16 @@
 		</form>
 		
 		<?php 
-			if(isset($_GET['id_pelanggan'])){
-				$id = $_GET['id_pelanggan'];
-				$text = "ID Pelanggan : $id";
-				$queryGenerate = "SELECT nama_pelanggan, alamat_pelanggan, no_hp_pelanggan FROM tb_pelanggan WHERE id_pelanggan='$id' AND status_langganan='Aktif'";
-				$result = mysqli_query($koneksi, $queryGenerate);
-				$pelanggan = mysqli_fetch_assoc($result);
-				$namaPelanggan = $pelanggan['nama_pelanggan'];
-				$alamatPelanggan = $pelanggan['alamat_pelanggan'];
-				$noHpPelanggan = $pelanggan['no_hp_pelanggan'];
-				// var_dump($pelanggan);
+		if(isset($_GET['id_pelanggan'])){
+			$id = $_GET['id_pelanggan'];
+			$text = "ID Pelanggan : $id";
+			$queryGenerate = "SELECT nama_pelanggan, alamat_pelanggan, no_hp_pelanggan FROM tb_pelanggan WHERE id_pelanggan='$id' AND status_langganan='Aktif'";
+			$result = mysqli_query($koneksi, $queryGenerate);
+			$pelanggan = mysqli_fetch_assoc($result);
+			$namaPelanggan = $pelanggan['nama_pelanggan'];
+			$alamatPelanggan = $pelanggan['alamat_pelanggan'];
+			$noHpPelanggan = $pelanggan['no_hp_pelanggan'];
+			// var_dump($pelanggan);
 		?>
 
 		<hr>
@@ -56,21 +56,20 @@
 		<?php } ?>
 
 	<form action="" method="post">
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Tanggal Keluhan</label>
-				<div class="col-sm-5">
-					<input type="date" class="form-control" id="tanggal_keluhan" name="tanggal_keluhan">
-				</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Tanggal Keluhan</label>
+			<div class="col-sm-5">
+				<input type="date" class="form-control" id="tanggal_keluhan" name="tanggal_keluhan">
 			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Isi Keluhan</label>
-				<div class="col-sm-5">
-					<input type="text" class="form-control" id="isi_keluhan" name="isi_keluhan">
-				</div>
-			</div>
-
 		</div>
+
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Isi Keluhan</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="isi_keluhan" name="isi_keluhan">
+			</div>
+		</div>
+		
 		<div class="card-footer">
 			<input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
 			<a href="?page=data-keluhan" title="Kembali" class="btn btn-secondary">Batal</a>
@@ -95,7 +94,7 @@
 </div>
 
 <?php
-    if (isset ($_POST['Simpan'])){
+    if(isset ($_POST['Simpan'])){
 		$idPelanggan = $_GET['id_pelanggan'];
 		$tanggal = date_create($_POST['tanggal_keluhan']);
 		$tanggalKeluhan = date_format($tanggal,"Y-m-d");
@@ -103,10 +102,14 @@
 		$isiKeluhan = $_POST['isi_keluhan'];
 		$statusPenanganan = "Belum Ditangani";
 
-		$sql_simpan = "INSERT INTO tb_keluhan VALUES (NULL, '$idPelanggan', '$tanggalKeluhan', '$isiKeluhan', '$statusPenanganan', $idTeknisi)";
+		$idUser = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Menambahkan data keluhan pelanggan)";
+
+		$sql_simpan = "INSERT INTO tb_keluhan VALUES (NULL, '$idPelanggan', '$tanggalKeluhan', '$isiKeluhan', '$statusPenanganan', $idTeknisi);";
+		$sql_simpan .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
 		// var_dump($sql_simpan);
 		
-        $query_simpan = mysqli_query($koneksi, $sql_simpan);
+        $query_simpan = mysqli_multi_query($koneksi, $sql_simpan);
         mysqli_close($koneksi);
 
 		if ($query_simpan) {

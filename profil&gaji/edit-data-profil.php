@@ -112,6 +112,8 @@ if(isset($_POST['Ubah'])){
 	$jenisKel = $_POST['jenis_kel'];
 	$alamat = $_POST['alamat'];
 	$noHP = $_POST['nomor_hp'];
+	$idUser = $_SESSION['ses_id'];
+	$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data profil)";
 
 	$sumber = @$_FILES['foto']['tmp_name'];
 	
@@ -126,12 +128,14 @@ if(isset($_POST['Ubah'])){
 		}
         $sql_ubah = "UPDATE tb_karyawan SET nama_karyawan='$nama', jenis_kelamin='$jenisKel', alamat_karyawan='$alamat', nik_karyawan='$nik', no_hp_karyawan='$noHP', tempat_lahir='$tempatLahir', tanggal_lahir='$tanggalLahir', foto='$foto' WHERE id=$id;";
 		$sql_ubah .= "UPDATE tb_pengguna SET nama_pengguna='$nama' WHERE id_pengguna=$id;";
+		$sql_ubah .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
         $query_ubah = mysqli_multi_query($koneksi, $sql_ubah);
 		// var_dump($sql_ubah);
 
 	}elseif(empty($sumber)){
 		$sql_ubah = "UPDATE tb_karyawan SET nama_karyawan='$nama', jenis_kelamin='$jenisKel', alamat_karyawan='$alamat', nik_karyawan='$nik', no_hp_karyawan='$noHP', tempat_lahir='$tempatLahir', tanggal_lahir='$tanggalLahir' WHERE id=$id;";
 		$sql_ubah .= "UPDATE tb_pengguna SET nama_pengguna='$nama' WHERE id_pengguna=$id;";
+		$sql_ubah .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idUser, null);";
 		// var_dump($sql_ubah);
         $query_ubah = mysqli_multi_query($koneksi, $sql_ubah);
     }

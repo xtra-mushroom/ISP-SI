@@ -75,19 +75,22 @@ if(isset($_GET['kode']) && isset($_GET['pel'])){
 
 <?php
     if(isset($_POST['Ubah'])){
-		$idKeluhan = $_GET['kode'];
+		$idPerbaikan = $_GET['kode'];
 		$idPelanggan = $_GET['pel'];
 		$penanganan = $_POST['penanganan'];
 		$tanggal = $_POST['tanggal_perbaikan'];
 		$lamaPerbaikan = $_POST['lama_penanganan'];
 		$idTeknisi = $_SESSION['ses_id'];
+		$aktivitas = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"." (Mengubah data perbaikan)";
 
-        $sql = "INSERT INTO tb_perbaikan VALUES (null, '$idKeluhan', '$idPelanggan', '$penanganan', '$tanggal', '$lamaPerbaikan', $idTeknisi);";
+        $sql = "UPDATE tb_perbaikan SET tanggal_perbaikan='$tanggal', penanganan='$penanganan', lama_perbaikan='$lamaPerbaikan', id_teknisi=$idTeknisi WHERE id_perbaikan=$idPerbaikan;";
 		$sql .= "UPDATE tb_keluhan SET status_penanganan='Sudah Ditangani' WHERE id_keluhan='$idKeluhan';";
-        $query_simpan = mysqli_multi_query($koneksi, $sql);
+		$sql .= "INSERT INTO log_aktivitas VALUES (null, '$aktivitas', $idTeknisi, null);";
+		
+        $query_ubah = mysqli_multi_query($koneksi, $sql);
 		// var_dump($sql_simpan);
 
-		if ($query_simpan) {
+		if ($query_ubah) {
 			echo "<script>
 			Swal.fire({title: 'Tambah Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
 			}).then((result) => {if (result.value){
@@ -98,7 +101,7 @@ if(isset($_GET['kode']) && isset($_GET['pel'])){
 			echo "<script>
 			Swal.fire({title: 'Tambah Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
 			}).then((result) => {if (result.value){
-				window.location = 'index.php?page=add-perbaikan&kode=$idKeluhan&pel=$idPelanggan';
+				window.location = 'index.php?page=edit-perbaikan-teknisiperbaikan&kode=$idKeluhan&pel=$idPelanggan';
 				}
 			})</script>";
 		}
